@@ -50,7 +50,9 @@ beta_vector<T>::beta_vector(size_type init_capacity) {
 
 template <typename T>
 beta_vector<T>::~beta_vector() noexcept {
-  std::free(m_data);
+  if (m_data != nullptr) {
+    std::free(m_data);
+  }
 }
 
 template <typename T>
@@ -71,9 +73,13 @@ __attribute__((always_inline)) void beta_vector<T>::reserve(size_type request_ca
       new (bptr) T(std::move(*iterator));
       iterator->~T();
     }
-    std::free(m_data);
+    if (m_data != nullptr) {
+      std::free(m_data);
+    }
   } catch (...) {
-    std::free(new_chunk);
+    if (new_chunk != nullptr) {
+      std::free(new_chunk);
+    }
     throw;
   }
   m_data     = new_chunk;
