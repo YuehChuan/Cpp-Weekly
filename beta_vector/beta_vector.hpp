@@ -71,6 +71,7 @@ __attribute__((always_inline)) void beta_vector<T>::reserve(size_type request_ca
       new (bptr) T(std::move(*iterator));
       iterator->~T();
     }
+    std::free(m_data);
   } catch (...) {
     std::free(new_chunk);
     throw;
