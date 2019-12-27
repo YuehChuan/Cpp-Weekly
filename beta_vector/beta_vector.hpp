@@ -24,11 +24,7 @@ class beta_vector : public noncopyable {
   size_type m_size     = 0;
   T* m_data            = nullptr;
 
-  void log_capacity([[maybe_unused]] const char* const signature) {
-#if log_enable
-    std::cout << "[log][" << std::setw(11) << std::left << signature << "] capacity = " << get_capacity() << std::endl;
-#endif
-  }
+  void log_capacity([[maybe_unused]] const char* const signature);
 
 public:
   explicit beta_vector(size_type init_capacity);
@@ -107,6 +103,13 @@ __attribute__((always_inline)) void beta_vector<T>::resize(size_type new_size) {
 template <typename T>
 __attribute__((always_inline)) typename beta_vector<T>::size_type beta_vector<T>::get_capacity(void) {
   return m_capacity;
+}
+
+template <typename T>
+void beta_vector<T>::log_capacity([[maybe_unused]] const char* const signature) {
+#if log_enable
+  std::cout << "[log][" << std::setw(11) << std::left << signature << "] capacity = " << get_capacity() << std::endl;
+#endif
 }
 
 #endif
