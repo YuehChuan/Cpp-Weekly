@@ -30,6 +30,8 @@ public:
 
   size_type capacity(void);
 
+  size_type size() const;
+
   template <typename... ARGS>
   void emplace_back(ARGS&&... args);
 };
@@ -99,6 +101,11 @@ __attribute__((always_inline)) void beta_vector<T>::resize(size_type new_size) {
 template <typename T>
 __attribute__((always_inline)) typename beta_vector<T>::size_type beta_vector<T>::capacity(void) {
   return m_capacity;
+}
+
+template <typename T>
+__attribute__((always_inline)) typename beta_vector<T>::size_type beta_vector<T>::size(void) const {
+  return m_size;
 }
 
 template <typename T>
