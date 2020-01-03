@@ -4,8 +4,8 @@
 #include <algorithm>
 #include <cassert>
 #include <functional>
-#include <inc/beta_vector.hpp>
 #include <inc/noncopyable.hpp>
+#include <inc/vector.hpp>
 #include <limits>
 #include <random>
 #include <vector>
