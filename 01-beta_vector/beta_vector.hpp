@@ -2,7 +2,9 @@
  *
  *  @mainpage  beta_vector.hpp
  *
- *  @brief     usage: ./run.sh <br><br>
+ *  @brief     usage: ./run.sh
+ *             
+ *  <br>
  *
  *  @details   build your own vector like std::vector from scratch
  *
