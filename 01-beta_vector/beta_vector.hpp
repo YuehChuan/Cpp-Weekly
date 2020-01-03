@@ -1,6 +1,6 @@
 /** @file      beta_vector.hpp
  *
- *  @mainpage
+ *  @mainpage  beta_vector.hpp
  *
  *  @brief     usage: ./run.sh <br><br>
  *
@@ -35,24 +35,54 @@ class beta_vector : public noncopyable {
   void log_capacity([[maybe_unused]] const char* const signature);
 
 public:
+  /**
+   * @brief ctor
+   */
   explicit beta_vector(size_type init_capacity);
 
+  /**
+   * @brief dtor
+   */
   ~beta_vector() noexcept;
 
+  /**
+   * @brief manage the capacity of beta_vector
+   */
   void reserve(size_type new_size);
 
+  /**
+   * @brief manage the size of beta_vector
+   */
   void resize(size_type new_size);
 
+  /**
+   * @brief return the capacity of beta_vector
+   */
   size_type capacity(void);
 
+  /**
+   * @brief the size of beta_vector
+   */
   size_type size() const;
 
+  /**
+   * @brief access the element of array
+   */
   T& at(int idx);
 
+  /**
+   * @brief use array subscript operator to access the element of array
+   */
   T& operator[](int i);
 
+  /**
+   * @brief return a reference to the last element
+   */
   T& back();
 
+  /**
+   * @brief appends a new element to the end of the container
+   */
   template <typename... ARGS>
   void emplace_back(ARGS&&... args);
 };
