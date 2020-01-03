@@ -16,3 +16,10 @@ It's **my study notes** for C++ Programming.
   $ g++ -v
   gcc version 9.2.0 (GCC)
   ```
+
+## Documents
+- [ClangFormat](https://clang.llvm.org/docs/ClangFormat.html)
+- [AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html)
+- [`std::random_device`](https://en.cppreference.com/w/cpp/numeric/random/random_device)
+- [`std::for_each`](https://en.cppreference.com/w/cpp/algorithm/for_each)
+- [`std::function`](https://en.cppreference.com/w/cpp/utility/functional/function)
