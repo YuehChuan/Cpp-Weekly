@@ -1,7 +1,7 @@
-#include <inc/test_container.hpp>
+#include <inc/test_vector.hpp>
 
 int test_suite(void) {
-  beta::test_container test_client;
+  beta::test_vector test_client;
   test_client.run_all();
   return 0;
 }
