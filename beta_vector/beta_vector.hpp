@@ -28,7 +28,7 @@ public:
 
   void resize(size_type new_size);
 
-  size_type get_capacity(void);
+  size_type capacity(void);
 };
 
 template <typename T>
@@ -94,14 +94,14 @@ __attribute__((always_inline)) void beta_vector<T>::resize(size_type new_size) {
 }
 
 template <typename T>
-__attribute__((always_inline)) typename beta_vector<T>::size_type beta_vector<T>::get_capacity(void) {
+__attribute__((always_inline)) typename beta_vector<T>::size_type beta_vector<T>::capacity(void) {
   return m_capacity;
 }
 
 template <typename T>
 void beta_vector<T>::log_capacity([[maybe_unused]] const char* const signature) {
 #if log_enable
-  std::cout << "[log][" << std::setw(11) << std::left << signature << "] capacity = " << get_capacity() << std::endl;
+  std::cout << "[log][" << std::setw(11) << std::left << signature << "] capacity = " << capacity() << std::endl;
 #endif
 }
 
