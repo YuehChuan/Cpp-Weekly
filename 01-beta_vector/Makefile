@@ -6,6 +6,8 @@ cxxflags += -fsanitize=address
 ldflags  := -lasan
 target   := console_app.out
 main     := client.cpp
+dir_doc  := doc
+browser  := firefox-developer-edition
 
 compile: $(target)
 
@@ -15,10 +17,14 @@ $(target): $(main)
 execute: $(target)
 	./$<
 
+doc: $(dir_doc)/Doxyfile
+	doxygen $<
+	$(browser) $(dir_doc)/html/index.html
+
 clean:
-	rm -f *.out
+	rm -f *.out && rm -rf $(dir_doc)/html && rm -rf $(dir_doc)/latex
 
 fmt:
 	find . -type f -iname "*.cpp" -o -iname "*.hpp" | xargs clang-format -style=file -i
 
-.PHONY: compile $(target) execute clean fmt
+.PHONY: compile $(target) execute doc clean fmt
