@@ -54,11 +54,15 @@ void test_container::test_emplace_back() {
   std::uniform_int_distribution<> distribution(1, std::numeric_limits<short>::max());
   int init_capacity = distribution(generator);
   int rnd_num       = distribution(generator);
-  beta_vector<int> dataset(init_capacity);
-  dataset.emplace_back(rnd_num >> 1);
-  dataset.emplace_back(rnd_num >> 2);
-  dataset.emplace_back(rnd_num >> 3);
-  test_status(__PRETTY_FUNCTION__, dataset.back() == (rnd_num >> 3));
+  beta_vector<int> dataset1st(init_capacity);
+  std::vector<int> dataset2nd(init_capacity);
+  dataset1st.emplace_back(rnd_num >> 1);
+  dataset1st.emplace_back(rnd_num >> 2);
+  dataset1st.emplace_back(rnd_num >> 3);
+  dataset2nd.emplace_back(rnd_num >> 1);
+  dataset2nd.emplace_back(rnd_num >> 2);
+  dataset2nd.emplace_back(rnd_num >> 3);
+  test_status(__PRETTY_FUNCTION__, dataset1st.back() == dataset2nd.back());
 }
 
 void test_container::test_status(const char* const signature, bool bool_expression) {
