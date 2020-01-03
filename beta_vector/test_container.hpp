@@ -5,10 +5,11 @@
 #include <cassert>
 #include <functional>
 #include <limits>
+#include <noncopyable.hpp>
 #include <random>
 #include <vector>
 
-class test_container {
+class test_container : public noncopyable {
   using test_case  = std::function<void(void)>;
   using test_suite = std::vector<test_case>;
 
