@@ -3,7 +3,7 @@
  *  @mainpage  beta_vector.hpp
  *
  *  @brief     usage: ./run.sh
- *             
+ *
  *  <br>
  *
  *  @details   build your own vector like std::vector from scratch
@@ -22,9 +22,9 @@
 
 #include <cstdlib>
 #include <exception>
+#include <inc/noncopyable.hpp>
 #include <iomanip>
 #include <iostream>
-#include <noncopyable.hpp>
 
 template <typename T>
 class beta_vector : public noncopyable {

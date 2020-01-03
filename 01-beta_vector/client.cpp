@@ -1,5 +1,5 @@
-#include <beta_vector.hpp>
-#include <test_container.hpp>
+#include <inc/beta_vector.hpp>
+#include <inc/test_container.hpp>
 
 int test_suite(void) {
   test_container test_client;
