@@ -34,6 +34,8 @@ public:
 
   T& at(int idx);
 
+  T& operator[](int i);
+
   T& back();
 
   template <typename... ARGS>
@@ -115,6 +117,11 @@ __attribute__((always_inline)) typename beta_vector<T>::size_type beta_vector<T>
 template <typename T>
 __attribute__((always_inline)) T& beta_vector<T>::at(int idx) {
   return m_data[idx];
+}
+
+template <typename T>
+__attribute__((always_inline)) T& beta_vector<T>::operator[](int idx) {
+  return at(idx);
 }
 
 template <typename T>
