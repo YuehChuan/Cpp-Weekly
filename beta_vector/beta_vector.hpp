@@ -29,6 +29,9 @@ public:
   void resize(size_type new_size);
 
   size_type capacity(void);
+
+  template <typename... ARGS>
+  void emplace_back(ARGS&&... args);
 };
 
 template <typename T>
@@ -96,6 +99,14 @@ __attribute__((always_inline)) void beta_vector<T>::resize(size_type new_size) {
 template <typename T>
 __attribute__((always_inline)) typename beta_vector<T>::size_type beta_vector<T>::capacity(void) {
   return m_capacity;
+}
+
+template <typename T>
+template <typename... ARGS>
+__attribute__((always_inline)) void beta_vector<T>::emplace_back(ARGS&&... args) {
+  reserve(m_size + 1);
+  new (m_data + m_size) T(std::forward<ARGS>(args)...);
+  m_size++;
 }
 
 template <typename T>
