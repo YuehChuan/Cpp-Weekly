@@ -3,7 +3,7 @@
 
 namespace beta {
 class noncopyable;
-class test_container;
+class test_vector;
 
 template <typename T>
 class vector;
