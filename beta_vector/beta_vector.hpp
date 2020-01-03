@@ -1,12 +1,12 @@
 #ifndef __BETA_VECTOR_HPP__
 #define __BETA_VECTOR_HPP__
 
-#define log_enable true
+#define log_enable false
 
-#include <cstdlib>   
-#include <exception> 
-#include <iomanip>   
-#include <iostream>  
+#include <cstdlib>
+#include <exception>
+#include <iomanip>
+#include <iostream>
 #include <noncopyable.hpp>
 
 template <typename T>
