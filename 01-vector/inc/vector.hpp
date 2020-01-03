@@ -1,6 +1,6 @@
-/** @file      beta_vector.hpp
+/** @file      vector.hpp
  *
- *  @mainpage  beta_vector.hpp
+ *  @mainpage  vector.hpp
  *
  *  @brief     usage: ./run.sh
  *
@@ -15,19 +15,21 @@
  *  @copyright MIT License
  */
 
-#ifndef __BETA_VECTOR_HPP__
-#define __BETA_VECTOR_HPP__
+#ifndef __VECTOR_HPP__
+#define __VECTOR_HPP__
 
 #define log_enable false
 
 #include <cstdlib>
 #include <exception>
-#include <inc/noncopyable.hpp>
 #include <iomanip>
 #include <iostream>
 
+#include <inc/beta.hpp>
+#include <inc/noncopyable.hpp>
+
 template <typename T>
-class beta_vector : public noncopyable {
+class beta::vector : public beta::noncopyable {
   using size_type = size_t;
 
   size_type m_capacity = 0;
@@ -40,30 +42,30 @@ public:
   /**
    * @brief ctor
    */
-  explicit beta_vector(size_type init_capacity);
+  explicit vector(size_type init_capacity);
 
   /**
    * @brief dtor
    */
-  ~beta_vector() noexcept;
+  ~vector() noexcept;
 
   /**
-   * @brief manage the capacity of beta_vector
+   * @brief manage the capacity of beta::vector
    */
   void reserve(size_type new_size);
 
   /**
-   * @brief manage the size of beta_vector
+   * @brief manage the size of beta::vector
    */
   void resize(size_type new_size);
 
   /**
-   * @brief return the capacity of beta_vector
+   * @brief return the capacity of beta::vector
    */
   size_type capacity(void);
 
   /**
-   * @brief the size of beta_vector
+   * @brief the size of beta::vector
    */
   size_type size() const;
 
@@ -90,20 +92,20 @@ public:
 };
 
 template <typename T>
-beta_vector<T>::beta_vector(size_type init_capacity) {
+beta::vector<T>::vector(size_type init_capacity) {
   resize(init_capacity);
   log_capacity(__FUNCTION__);
 }
 
 template <typename T>
-beta_vector<T>::~beta_vector() noexcept {
+beta::vector<T>::~vector() noexcept {
   if (m_data != nullptr) {
     std::free(m_data);
   }
 }
 
 template <typename T>
-__attribute__((always_inline)) void beta_vector<T>::reserve(size_type request_capacity) {
+__attribute__((always_inline)) void beta::vector<T>::reserve(size_type request_capacity) {
   if (m_capacity >= request_capacity) {
     return;
   }
@@ -135,7 +137,7 @@ __attribute__((always_inline)) void beta_vector<T>::reserve(size_type request_ca
 }
 
 template <typename T>
-__attribute__((always_inline)) void beta_vector<T>::resize(size_type new_size) {
+__attribute__((always_inline)) void beta::vector<T>::resize(size_type new_size) {
   if (m_size == new_size) {
     return;
   }
@@ -152,40 +154,40 @@ __attribute__((always_inline)) void beta_vector<T>::resize(size_type new_size) {
 }
 
 template <typename T>
-__attribute__((always_inline)) typename beta_vector<T>::size_type beta_vector<T>::capacity(void) {
+__attribute__((always_inline)) typename beta::vector<T>::size_type beta::vector<T>::capacity(void) {
   return m_capacity;
 }
 
 template <typename T>
-__attribute__((always_inline)) typename beta_vector<T>::size_type beta_vector<T>::size(void) const {
+__attribute__((always_inline)) typename beta::vector<T>::size_type beta::vector<T>::size(void) const {
   return m_size;
 }
 
 template <typename T>
-__attribute__((always_inline)) T& beta_vector<T>::at(int idx) {
+__attribute__((always_inline)) T& beta::vector<T>::at(int idx) {
   return m_data[idx];
 }
 
 template <typename T>
-__attribute__((always_inline)) T& beta_vector<T>::operator[](int idx) {
+__attribute__((always_inline)) T& beta::vector<T>::operator[](int idx) {
   return at(idx);
 }
 
 template <typename T>
-__attribute__((always_inline)) T& beta_vector<T>::back() {
+__attribute__((always_inline)) T& beta::vector<T>::back() {
   return at(m_size - 1);
 }
 
 template <typename T>
 template <typename... ARGS>
-__attribute__((always_inline)) void beta_vector<T>::emplace_back(ARGS&&... args) {
+__attribute__((always_inline)) void beta::vector<T>::emplace_back(ARGS&&... args) {
   reserve(m_size + 1);
   new (m_data + m_size) T(std::forward<ARGS>(args)...);
   m_size++;
 }
 
 template <typename T>
-void beta_vector<T>::log_capacity([[maybe_unused]] const char* const signature) {
+void beta::vector<T>::log_capacity([[maybe_unused]] const char* const signature) {
 #if log_enable
   std::cout << "[log][" << std::setw(11) << std::left << signature << "] capacity = " << capacity() << std::endl;
 #endif
