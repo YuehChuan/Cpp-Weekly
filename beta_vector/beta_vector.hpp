@@ -34,6 +34,8 @@ public:
 
   T& at(int idx);
 
+  T& back();
+
   template <typename... ARGS>
   void emplace_back(ARGS&&... args);
 };
@@ -113,6 +115,11 @@ __attribute__((always_inline)) typename beta_vector<T>::size_type beta_vector<T>
 template <typename T>
 __attribute__((always_inline)) T& beta_vector<T>::at(int idx) {
   return m_data[idx];
+}
+
+template <typename T>
+__attribute__((always_inline)) T& beta_vector<T>::back() {
+  return at(m_size - 1);
 }
 
 template <typename T>
