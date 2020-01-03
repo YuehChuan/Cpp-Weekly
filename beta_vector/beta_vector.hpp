@@ -11,7 +11,7 @@
 
 template <typename T>
 class beta_vector : public noncopyable {
-  using size_type = ssize_t;
+  using size_type = size_t;
 
   size_type m_capacity = 0;
   size_type m_size     = 0;
