@@ -1,6 +1,6 @@
 /** @file      beta_vector.hpp
  *
- *  @mainpage
+ *  @mainpage  beta_vector.hpp
  *
  *  @brief     usage: ./run.sh <br><br>
  *
