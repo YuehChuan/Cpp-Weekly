@@ -23,3 +23,4 @@ It's **my study notes** for C++ Programming.
 - [`std::random_device`](https://en.cppreference.com/w/cpp/numeric/random/random_device)
 - [`std::for_each`](https://en.cppreference.com/w/cpp/algorithm/for_each)
 - [`std::function`](https://en.cppreference.com/w/cpp/utility/functional/function)
+- [`std::vector<T,Allocator>::emplace_back`](https://en.cppreference.com/w/cpp/container/vector/emplace_back)
