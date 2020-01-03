@@ -1,5 +1,6 @@
 DOXYFILE_ENCODING      = UTF-8
-PROJECT_NAME           = "beta_vector"
+PROJECT_NAME           = "beta::vector"
 OUTPUT_DIRECTORY       = doc
 OUTPUT_LANGUAGE        = English
 EXTRACT_ALL            = YES
+RECURSIVE              = YES
