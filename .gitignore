@@ -1,6 +1,10 @@
 # gdb
 .gdb_history
 
+# Doxygen
+*/doc/html/
+*/doc/latex/
+
 # Prerequisites
 *.d
 
