@@ -12,9 +12,9 @@ class test_container {
   using test_case  = std::function<void(void)>;
   using test_suite = std::vector<test_case>;
 
-  static constexpr char* const color_red   = const_cast<char* const>("\032[1;31m");
-  static constexpr char* const color_gray  = const_cast<char* const>("\032[1;30m");
-  static constexpr char* const color_green = const_cast<char* const>("\033[1:32m");
+  static constexpr char* const color_red   = const_cast<char* const>("\033[1;31m");
+  static constexpr char* const color_gray  = const_cast<char* const>("\033[1;30m");
+  static constexpr char* const color_green = const_cast<char* const>("\033[1;32m");
   static constexpr char* const color_reset = const_cast<char* const>("\033[0m");
 
   static void test_status(const char* const signature, bool bool_expression);
