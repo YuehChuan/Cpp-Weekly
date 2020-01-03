@@ -6,7 +6,6 @@ cxxflags += -fsanitize=address
 ldflags  := -lasan
 target   := console_app.out
 main     := client.cpp
-upper    := 3
 
 compile: $(target)
 
@@ -14,7 +13,7 @@ $(target): $(main)
 	$(cc) $(cxxflag) -I./ -o $@ $< $(ldflags) -Dtest_suite=main
 
 execute: $(target)
-	./$< $(upper)
+	./$<
 
 clean:
 	rm -f *.out
