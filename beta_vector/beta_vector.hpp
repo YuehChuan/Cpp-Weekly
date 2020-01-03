@@ -6,15 +6,8 @@
 #include <cstdlib>   // std::malloc, std::free
 #include <exception> // throw
 #include <iomanip>   // std::setw
-#include <iostream>  // std::cout, std::endl;
-
-class noncopyable {
-  noncopyable(const noncopyable&) = delete;
-  void operator=(const noncopyable&) = delete;
-
-public:
-  noncopyable() = default;
-};
+#include <iostream>  // std::cout, std::endl
+#include <noncopyable.hpp>
 
 template <typename T>
 class beta_vector : public noncopyable {
