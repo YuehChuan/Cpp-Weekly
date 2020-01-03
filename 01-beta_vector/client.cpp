@@ -1,4 +1,3 @@
-#include <inc/beta_vector.hpp>
 #include <inc/test_container.hpp>
 
 int test_suite(void) {
