@@ -3,10 +3,10 @@
 
 #define log_enable true
 
-#include <cstdlib>   // std::malloc, std::free
-#include <exception> // throw
-#include <iomanip>   // std::setw
-#include <iostream>  // std::cout, std::endl
+#include <cstdlib>   
+#include <exception> 
+#include <iomanip>   
+#include <iostream>  
 #include <noncopyable.hpp>
 
 template <typename T>
