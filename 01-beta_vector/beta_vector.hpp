@@ -1,3 +1,18 @@
+/** @file      beta_vector.hpp
+ *
+ *  @mainpage
+ *
+ *  @brief     usage: ./run.sh <br><br>
+ *
+ *  @details   build your own vector like std::vector from scratch
+ *
+ *  @author    <a href="https://twitter.com/GapryYuen">Gapry</a>
+ *
+ *  @date      2020
+ *
+ *  @copyright MIT License
+ */
+
 #ifndef __BETA_VECTOR_HPP__
 #define __BETA_VECTOR_HPP__
 
