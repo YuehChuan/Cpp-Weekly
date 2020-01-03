@@ -25,13 +25,14 @@ public:
 
   static void run_all();
   static void test_resize();
+  static void test_emplace_back();
 };
 
 void test_container::run_all() {
   auto execute = [](test_suite coverage_functions) {
     std::for_each(coverage_functions.begin(), coverage_functions.end(), [](test_case test_feature) { test_feature(); });
   };
-  execute(test_suite{test_resize});
+  execute(test_suite{test_resize, test_emplace_back});
 }
 
 void test_container::test_resize() {
@@ -45,6 +46,19 @@ void test_container::test_resize() {
   dataset1st.resize(required_capacity);
   dataset2nd.resize(required_capacity);
   test_status(__PRETTY_FUNCTION__, (dataset1st.capacity() == dataset2nd.capacity()));
+}
+
+void test_container::test_emplace_back() {
+  std::random_device device;
+  std::mt19937 generator(device());
+  std::uniform_int_distribution<> distribution(1, std::numeric_limits<short>::max());
+  int init_capacity = distribution(generator);
+  int rnd_num       = distribution(generator);
+  beta_vector<int> dataset(init_capacity);
+  dataset.emplace_back(rnd_num >> 1);
+  dataset.emplace_back(rnd_num >> 2);
+  dataset.emplace_back(rnd_num >> 3);
+  test_status(__PRETTY_FUNCTION__, dataset.back() == (rnd_num >> 3));
 }
 
 void test_container::test_status(const char* const signature, bool bool_expression) {
