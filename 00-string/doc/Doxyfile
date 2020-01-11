@@ -1,0 +1,6 @@
+DOXYFILE_ENCODING      = UTF-8
+PROJECT_NAME           = "beta::string"
+OUTPUT_DIRECTORY       = doc
+OUTPUT_LANGUAGE        = English
+EXTRACT_ALL            = YES
+RECURSIVE              = YES
