@@ -2,8 +2,8 @@
 .gdb_history
 
 # Doxygen
-*/doc/html/
-*/doc/latex/
+html/
+latex/
 
 # Prerequisites
 *.d
