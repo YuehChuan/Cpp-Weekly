@@ -2,13 +2,9 @@
  *
  *  @mainpage  vector.hpp
  *
- *  @brief     usage: ./run.sh
+ *  @brief     build your own vector like std::vector from scratch
  *
- *  <br>
- *
- *  @details   build your own vector like std::vector from scratch
- *
- *  @author    <a href="https://twitter.com/GapryYuen">Gapry</a>
+ *  @author    Gapry
  *
  *  @date      2020
  *
