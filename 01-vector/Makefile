@@ -2,8 +2,7 @@ cc       := clang++
 cxxflag   = -Wall -Wextra -Werror
 cxxflag  += -g -O2
 cxxflag  += -std=c++17
-cxxflags += -fsanitize=address
-ldflags  := -lasan
+cxxflag  += -fsanitize=address
 target   := console_app.out
 main     := client.cpp
 dir_doc  := doc
@@ -12,7 +11,7 @@ browser  := firefox-developer-edition
 compile: $(target)
 
 $(target): $(main)
-	$(cc) $(cxxflag) -I./ -o $@ $< $(ldflags) -Dtest_suite=main
+	$(cc) $(cxxflag) -I./ -o $@ $< -Dtest_suite=main
 
 execute: $(target)
 	./$<
