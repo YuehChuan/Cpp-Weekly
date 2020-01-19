@@ -26,4 +26,7 @@ clean:
 fmt:
 	find . -type f -iname "*.cpp" -o -iname "*.hpp" | xargs clang-format -style=file -i
 
-.PHONY: compile $(target) execute doc clean fmt
+tidy: $(shell find . -type f -iname "*.cpp" -o -iname "*.hpp")
+	clang-tidy -fix $? -- -std=c++17 -I./
+
+.PHONY: compile $(target) execute doc clean fmt tidy
