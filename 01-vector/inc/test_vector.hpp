@@ -34,7 +34,8 @@ public:
 
 void beta::test_vector::run_all() {
   auto execute = [](test_suite coverage_functions) {
-    std::for_each(coverage_functions.begin(), coverage_functions.end(), [](const test_case& test_feature) { test_feature(); });
+    std::for_each(coverage_functions.begin(), coverage_functions.end(),
+                  [](const test_case& test_feature) { test_feature(); });
   };
   execute(test_suite{test_resize, test_emplace_back});
 }
