@@ -32,7 +32,7 @@ class beta::vector : public beta::noncopyable {
   size_type m_size     = 0;
   T* m_data            = nullptr;
 
-  void log_capacity([[maybe_unused]] const char* const signature);
+  void log_capacity([[maybe_unused]] const char* signature);
 
 public:
   /**
@@ -48,7 +48,7 @@ public:
   /**
    * @brief manage the capacity of beta::vector
    */
-  void reserve(size_type new_size);
+  void reserve(size_type request_capacity);
 
   /**
    * @brief manage the size of beta::vector
@@ -58,27 +58,27 @@ public:
   /**
    * @brief return the capacity of beta::vector
    */
-  size_type capacity(void);
+  auto capacity() -> size_type;
 
   /**
    * @brief the size of beta::vector
    */
-  size_type size() const;
+  [[nodiscard]] auto size() const -> size_type;
 
   /**
    * @brief access the element of array
    */
-  T& at(int idx);
+  auto at(int idx) -> T&;
 
   /**
    * @brief use array subscript operator to access the element of array
    */
-  T& operator[](int i);
+  auto operator[](int i) -> T&;
 
   /**
    * @brief return a reference to the last element
    */
-  T& back();
+  auto back() -> T&;
 
   /**
    * @brief appends a new element to the end of the container
@@ -150,27 +150,27 @@ __attribute__((always_inline)) void beta::vector<T>::resize(size_type new_size) 
 }
 
 template <typename T>
-__attribute__((always_inline)) typename beta::vector<T>::size_type beta::vector<T>::capacity(void) {
+__attribute__((always_inline)) auto beta::vector<T>::capacity() -> typename beta::vector<T>::size_type {
   return m_capacity;
 }
 
 template <typename T>
-__attribute__((always_inline)) typename beta::vector<T>::size_type beta::vector<T>::size(void) const {
+__attribute__((always_inline)) auto beta::vector<T>::size() const -> typename beta::vector<T>::size_type {
   return m_size;
 }
 
 template <typename T>
-__attribute__((always_inline)) T& beta::vector<T>::at(int idx) {
+__attribute__((always_inline)) auto beta::vector<T>::at(int idx) -> T& {
   return m_data[idx];
 }
 
 template <typename T>
-__attribute__((always_inline)) T& beta::vector<T>::operator[](int idx) {
+__attribute__((always_inline)) auto beta::vector<T>::operator[](int idx) -> T& {
   return at(idx);
 }
 
 template <typename T>
-__attribute__((always_inline)) T& beta::vector<T>::back() {
+__attribute__((always_inline)) auto beta::vector<T>::back() -> T& {
   return at(m_size - 1);
 }
 

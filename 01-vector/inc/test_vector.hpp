@@ -21,7 +21,7 @@ class beta::test_vector : public beta::noncopyable {
   static constexpr char* const color_green = const_cast<char* const>("\033[1;32m");
   static constexpr char* const color_reset = const_cast<char* const>("\033[0m");
 
-  static void test_status(const char* const signature, bool bool_expression);
+  static void test_status(const char* signature, bool bool_expression);
 
 public:
   test_vector()  = default;
@@ -34,7 +34,7 @@ public:
 
 void beta::test_vector::run_all() {
   auto execute = [](test_suite coverage_functions) {
-    std::for_each(coverage_functions.begin(), coverage_functions.end(), [](test_case test_feature) { test_feature(); });
+    std::for_each(coverage_functions.begin(), coverage_functions.end(), [](const test_case& test_feature) { test_feature(); });
   };
   execute(test_suite{test_resize, test_emplace_back});
 }
