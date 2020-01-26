@@ -1,0 +1,10 @@
+Checks: '-*,
+         bugprone-*,
+         clang-analyzer-*,
+         -clang-analyzer-cplusplus*,
+         google-*,
+         modernize-*,
+         performance-*,
+         portability-*,
+         readability-*,
+         -readability-magic-numbers,'
