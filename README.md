@@ -1,5 +1,5 @@
 ## C++ Weekly
-It's **my study notes** for C++ Programming.
+It's [**my study notes**](https://gapry.github.io/Cpp-Weekly/) for C++ Programming.
 
 ## Development Environment
 - [Arch Linux](https://www.archlinux.org/)
