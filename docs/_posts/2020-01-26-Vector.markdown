@@ -1,0 +1,42 @@
+---
+layout: post
+title:  "C++ Vector"
+date:   2020-01-26 11:48:00 +0800
+categories: jekyll update
+---
+
+{% highlight c++ %}
+
+class vector {
+  size_type m_capacity = 0;
+  size_type m_size     = 0;
+  T* m_data            = nullptr;
+
+public:
+  explicit vector(size_type init_capacity);
+
+  ~vector() noexcept;
+
+  void reserve(size_type request_capacity);
+
+  void resize(size_type new_size);
+
+  auto capacity() -> size_type;
+
+  [[nodiscard]] auto size() const -> size_type;
+
+  auto at(int idx) -> T&;
+
+  auto operator[](int i) -> T&;
+
+  auto back() -> T&;
+
+  template <typename... ARGS>
+  void emplace_back(ARGS&&... args);
+};
+
+{% endhighlight %}
+
+## References
+* [std::vector](https://en.cppreference.com/w/cpp/container/vector)
+* [std::allocator](https://en.cppreference.com/w/cpp/memory/allocator)
