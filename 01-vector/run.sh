@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -a build_stages=( clean fmt tidy compile execute )
+declare -a build_stages=( clean fmt compile execute )
 
 function main() {
   local -r stages=${!1}
